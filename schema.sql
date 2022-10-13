@@ -10,6 +10,3 @@ CREATE TABLE animals(
   weight_kg DEC
 );
 
-ALTER TABLE animals ADD species CHAR(50);
-
-
