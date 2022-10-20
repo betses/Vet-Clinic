@@ -10,3 +10,5 @@ CREATE TABLE animals(
   weight_kg DEC
 );
 
+
+
