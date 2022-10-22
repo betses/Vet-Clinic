@@ -47,3 +47,31 @@ ALTER TABLE animals ADD COLUMN species_id INT references species(id);
    key referencing 'owners' table
 */
 ALTER TABLE animals ADD COLUMN owner_id INT references owners(id);
+
+/* Creating 'vets' table in 'vet_clinic' database
+   Table has columns: id, name, age, and date_of_graduation
+*/
+CREATE TABLE vets (
+    id  BIGSERIAL  NOT NULL,
+    name   VARCHAR(30) NOT NULL,
+    age INT,
+    date_of_graduation DATE,
+    PRIMARY KEY(id)
+);
+
+/* Creating 'specializations' table in 'vet_clinic' database
+Table has columns: vet_id, and species_id
+*/
+CREATE TABLE specializations (
+    vet_id INT REFERENCES vets(id),
+    species_id INT REFERENCES species(id)
+);
+
+/* Creating 'visits' table in 'vet_clinic' database
+Table has columns: animal_id, vet_id, and date_visited
+*/
+CREATE TABLE visits (
+    animal_id INT REFERENCES animals(id),
+    vet_id INT REFERENCES vets(id),
+    date_visited DATE
+);
